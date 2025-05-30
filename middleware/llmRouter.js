@@ -2,8 +2,6 @@ const axios = require('axios');
 
 async function evaluateStudentProfile(profileData, promptTemplate) {
   const prompt = promptTemplate.replace('{input}', JSON.stringify(profileData, null, 2));
-  
-  console.log("Loaded OpenAI key (partial):", process.env.OPENAI_API_KEY?.slice(0, 8));
   const response = await axios.post(
     'https://api.openai.com/v1/chat/completions',
     {
